@@ -3,6 +3,9 @@
   <head>
   <meta http-equiv="content-type" content="text/html" charset="UTF-8">
   <link href="./css/styles.css" type="text/css" rel="stylesheet">
+      <script type="text/javascript" src="./js/CSInterface.js"></script>
+      <script type="text/javascript" src="./js/Vulcan.js"></script>
+      <script type="text/javascript" src="./js/AgoraLib.js"></script>
   </head>
     
   <body style="background-color: #a2a1a3">
@@ -17,11 +20,24 @@
   <br>
   <input type="button" value="button1">     <input type="button" value="button2">
 
+<script>
 
+    // set PS panel persistence
+    var event = new CSEvent();
+    event.type = "com.adobe.PhotoshopPersistent";
+    event.scope = "APPLICATION";
+    event.extensionId = window.__adobe_cep__.getExtensionId();
+    new CSInterface().dispatchEvent(event);
+
+    var cs = new CSInterface();
+    document.write(
+            "App name: " +
+            cs.getHostEnvironment().appName );
+
+</script>
   </body>
 
 
-  <script type="text/javascript" src="./js/CSInterface.js"></script>
-  <script type="text/javascript" src="./js/Vulcan.js"></script>
-  <script type="text/javascript" src="./js/AgoraLib.js"></script>
+
+
 </html>
