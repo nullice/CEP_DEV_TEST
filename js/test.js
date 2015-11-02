@@ -1,51 +1,95 @@
-//Create a Welcome message
-// Use the name and version properties of the application object to
-// Append the application¡¯s name and version to the Welcome message
-// use "\r" to insert a carriage return
-// use the combination operator += to append info to the message
-var message = "Welcome to " + app.name
-message += " version " + app.version + "\r\r"
-// find out where Adobe Photoshop CC 2014 is installed
-// and add the path to the message
-// add the optional parameter fsName to the path property
-// to display the file system name in the most common format
-message += "I¡¯m installed in " + app.path.fsName + "\r\r"
-// see how much memory Adobe Photoshop CC 2014 has to play with
-message += "You have this much memory available for Adobe Photoshop CC 2014: " +
-    app.freeMemory + "\r\r"
-// use the length property of the documents object to
-// see how many documents are open
-var documentsOpen = app.documents.length
-message += "You currently have " + documentsOpen + " document(s) open.\r\r"
-// display the message to the user
-alert(message)
-// answer will be true for a "Yes" answer and false for a "No" answer
-var answer = confirm("Set the foreground and background to my favorite colors?")
-// set the colors
-if (answer)
+var ff;
+var fonts = function (len)
 {
-// I don¡¯t have a favorite color. Why did I ask you may wonder?
-    app.foregroundColor.rgb.red = Math.random() * 255
-    app.foregroundColor.rgb.green = Math.random() * 255
-    app.foregroundColor.rgb.blue = Math.random() * 255
-    app.backgroundColor.rgb.red = Math.random() * 255
-    app.backgroundColor.rgb.green = Math.random() * 255
-    app.backgroundColor.rgb.blue = Math.random() * 255
-}
-// Open a document
-if (app.documents.length == 0)
-{
-// use the application¡¯s path and the offset to the samples folder
-    var sampleDocToOpen = File(app.path + "/Samples/Fish.psd")
-// compose a message with the name of the file
-    message = "Would you like me to open a sample for you? ("
-    message += sampleDocToOpen.fsName
-    message += ")"
-// ask the user another question
-    answer = confirm(message)
-// open the document accordingly
-    if (answer)
+    var cs = new CSInterface();
+
+    alert("aaa" + len);
+
+    var fontlist = [];
+    for (var i = 0; i < len; i++)
     {
-        open(sampleDocToOpen)
+        cs.evalScript("app.fonts[" + i + "]", function (res)
+        {
+            fontlist[fontlist.length] = res;
+            console.log(fontlist)
+        });
+
     }
+
+
 }
+
+
+var pop = function ()
+{
+    //alert("pop");
+    console.log("pop");
+    var cs = new CSInterface();
+    cs.evalScript("dodo(1122)");
+
+
+    function loadJSX(fileName)
+    {
+        var extensionRoot = cs.getSystemPath(SystemPath.EXTENSION) + "/jsx/";
+        cs.evalScript('$.evalFile("' + extensionRoot + fileName + '")');
+    }
+
+    loadJSX("json2.js");
+
+    cs.evalScript('getFontsJson()',
+        function (result)
+        {
+            var o = JSON.parse(result);
+            alert("getFontsJson \n" + o);
+
+
+            var nwe_fontlistNode = document.createElement("div");
+            nwe_fontlistNode.className = "fontlist";
+            for (var i = 0; i < o.length; i++)
+            {
+                if(list[i]!=undefined && list[i]!=null && list[i].name.length>0)
+                {
+                    var div = document.createElement("div");
+                    div.className = "fontdiv";
+                    div.setAttribute("font_name",list[i].name);
+                    div.setAttribute("font_family",list[i].family);
+                    div.setAttribute("font_family",list[i].);
+                    div.appendChild(document.createTextNode(o.list[i].name));
+                    nwe_fontlistNode.appendChild(div);
+                }
+            }
+
+
+            var docfs = document.getElementById("fontlist");
+            docfs.parentNode.replaceChild(nwe_fontlistNode,docfs);
+            console.log(o);
+            gg = o;
+        }
+    )
+}
+
+
+//
+//    cs.evalScript("app.fonts.length",function(res)
+//    {
+//
+//        lll=res;
+//
+//
+//
+//
+//    }
+//    );
+//
+//    var txt = '{ "employees" : [' +
+//        '{ "firstName":"Bill" , "lastName":"Gates" },' +
+//        '{ "firstName":"George" , "lastName":"Bush" },' +
+//        '{ "firstName":"Thomas" , "lastName":"Carter" } ]}';
+//
+//console.log( eval ("(" + txt + ")"))
+
+
+
+
+
+

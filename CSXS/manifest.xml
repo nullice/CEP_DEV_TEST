@@ -26,6 +26,7 @@
             <DispatchInfo>
                 <Resources>
                     <MainPath>./index.html</MainPath>
+                    <ScriptPath>./jsx/Source1.jsx</ScriptPath>
                 </Resources>
 
                 <Lifecycle>

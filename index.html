@@ -3,31 +3,44 @@
   <head>
   <meta http-equiv="content-type" content="text/html" charset="UTF-8">
   <link href="./css/styles.css" type="text/css" rel="stylesheet">
+      <script type="text/javascript" src="./js/test.js"></script>
       <script type="text/javascript" src="./js/CSInterface.js"></script>
       <script type="text/javascript" src="./js/Vulcan.js"></script>
       <script type="text/javascript" src="./js/AgoraLib.js"></script>
   </head>
     
-  <body style="background-color: #a2a112">
+  <body style="background-color: #a2a1a3">
   <span style="font-family: '微软雅黑'; font-style: normal; font-weight: normal; font-size: 16pt; color: white"> CEP 6 开发教程 </span>
     <br>
-
     <br>
     <br>
     <span >
       <span style="font-family: 'Castellar'; font-style: normal; font-weight: normal; font-size: 34pt;"> Hello World ! </span>
     </span>
   <br>
-  <input type="button" value="button1">     <input type="button" value="button2">
 
+  <input type="button" value="button1" onclick="pop()">
+  <input type="button" value="button2">
+
+  <div id="fontlist_title"><span>FONT</span></div>
+  <div id="fontlist">r
+
+  </div>
+
+<a href="https://blogs.adobe.com/cssdk/2014/06/adobe-extension-builder-and-creative-cloud-2014.html">aaaa</a>
 <script>
 
+   // alert("note2");
+   // window.open("http://aphall.com/2014/08/cep-5-html-debug-en/", "_blank");
+
+
+
     // set PS panel persistence
-    var event = new CSEvent();
-    event.type = "com.adobe.PhotoshopPersistent";
-    event.scope = "APPLICATION";
-    event.extensionId = window.__adobe_cep__.getExtensionId();
-    new CSInterface().dispatchEvent(event);
+    // var event = new CSEvent();
+    // event.type = "com.adobe.PhotoshopPersistent";
+    // event.scope = "APPLICATION";
+    // event.extensionId = window.__adobe_cep__.getExtensionId();
+    // new CSInterface().dispatchEvent(event);
 
     var cs = new CSInterface();
     document.write(
