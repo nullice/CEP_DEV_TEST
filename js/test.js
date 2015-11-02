@@ -47,13 +47,18 @@ var pop = function ()
             nwe_fontlistNode.className = "fontlist";
             for (var i = 0; i < o.length; i++)
             {
-                if(list[i]!=undefined && list[i]!=null && list[i].name.length>0)
+                if (o.list[i].name != undefined)
                 {
                     var div = document.createElement("div");
                     div.className = "fontdiv";
-                    div.setAttribute("font_name",list[i].name);
-                    div.setAttribute("font_family",list[i].family);
-                    div.setAttribute("font_family",list[i].);
+                    div.setAttribute("font_name", o.list[i].name);
+                    div.setAttribute("font_family", o.list[i].family);
+                    div.setAttribute("font_type", o.list[i].typename);
+                    div.setAttribute("font_postScriptName", o.list[i].postScriptName);
+
+                    div.setAttribute("style", "font-family:" + "'" + o.list[i].name + "';");
+
+
                     div.appendChild(document.createTextNode(o.list[i].name));
                     nwe_fontlistNode.appendChild(div);
                 }
@@ -61,7 +66,7 @@ var pop = function ()
 
 
             var docfs = document.getElementById("fontlist");
-            docfs.parentNode.replaceChild(nwe_fontlistNode,docfs);
+            docfs.parentNode.replaceChild(nwe_fontlistNode, docfs);
             console.log(o);
             gg = o;
         }
