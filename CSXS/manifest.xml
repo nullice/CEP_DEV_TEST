@@ -31,6 +31,10 @@
 
                 <Lifecycle>
                     <AutoVisible>true</AutoVisible>
+                    <StartOn>
+                        <!-- Photoshop dispatches this event on startup -->
+                        <Event>applicationActivate</Event>
+                    </StartOn>
                 </Lifecycle>
 
                 <UI>
@@ -64,6 +68,12 @@
                             <Width>300</Width>
                         </MinSize>
                     </Geometry>
+
+                    <Icons>
+                        <Icon Type="Normal">./img/icon1.png</Icon>
+                        <Icon Type="DarkNormal">./img/icon1.png</Icon>
+                    </Icons>
+
                 </UI>
 
             </DispatchInfo>
