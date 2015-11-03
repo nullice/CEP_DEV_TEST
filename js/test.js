@@ -74,6 +74,54 @@ var pop = function ()
 }
 
 
+
+
+
+
+var pop2 = function ()
+{
+    alert("pop2");
+
+    var csInterface = new CSInterface();
+
+// Create a new Event
+    var event = new CSEvent("com.adobe.PhotoshopRegisterEvent", "APPLICATION");
+
+// Set Event properties: extension id
+    event.extensionId = csInterface.getExtensionID();
+
+    event.data = "1936028772";
+
+// Dispatch the Event
+    csInterface.dispatchEvent(event);
+
+// Attach a callback
+    csInterface.addEventListener("com.adobe.PhotoshopJSONCallback"+csInterface.getExtensionID(), PSCallback);
+
+// Define the callback
+    function PSCallback(csEvent) { alert("RRR"+csEvent.data) }
+
+    new CSInterface().addEventListener(
+        "documentAfterActivate",
+        function(event) {
+            alert("Event type:" + event.type +
+                "\nData: " + event.data );
+        }
+
+    )
+
+
+
+
+
+    cs.evalScript("dodo('pop2')");
+}
+
+
+
+
+
+
 //
 //    cs.evalScript("app.fonts.length",function(res)
 //    {
