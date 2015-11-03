@@ -90,12 +90,14 @@ var pop2 = function ()
 // Set Event properties: extension id
     event.extensionId = csInterface.getExtensionID();
 
-    event.data = "1936028772";
+    event.data = "1668247673";
 
 // Dispatch the Event
     csInterface.dispatchEvent(event);
 
 // Attach a callback
+    csInterface.addEventListener("com.adobe.PhotoshopJSONCallback"+csInterface.getExtensionID(), PSCallback);
+
     csInterface.addEventListener("com.adobe.PhotoshopJSONCallback"+csInterface.getExtensionID(), PSCallback);
 
 // Define the callback
@@ -112,6 +114,11 @@ var pop2 = function ()
 
 
 
+    csInterface.addEventListener("My Custom Event", function(evt) {
+
+        alert('Data from the JSX payload: ' + evt.data);
+
+    });
 
 
     cs.evalScript("dodo('pop2')");
