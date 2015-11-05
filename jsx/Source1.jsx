@@ -6,7 +6,22 @@
 
 var dodo2 = function (info)
 {
-    return 11;
+
+
+    try {
+        var xLib = new ExternalObject("lib:\PlugPlugExternalObject");
+    } catch (e) {
+        alert(e);
+    }
+
+    if (xLib) {
+        var eventObj = new CSXSEvent();
+        eventObj.type = "My Custom Event";
+        eventObj.data = "some payload data...";
+        eventObj.dispatch();
+    }
+
+
 }
 
 
