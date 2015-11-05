@@ -20,22 +20,16 @@ var fonts = function (len)
 }
 
 
-
-
-var regularizFontlist= function(fontlist)//整理字体列表
+var regularizFontlist = function (fontlist)//整理字体列表
 {
-
-
 
 
     for (var i = 0; i < fontlist.length; i++)
     {
 
 
-        fontlist.list[i].htmlName="";
-        fontlist.list[i].userPreviweStr="";
-
-
+        fontlist.list[i].htmlName = "";
+        fontlist.list[i].userPreviweStr = "";
 
 
     }
@@ -45,9 +39,9 @@ var regularizFontlist= function(fontlist)//整理字体列表
 var pop = function ()
 {
     //alert("pop");
-   // console.log("pop");
+    // console.log("pop");
     var cs = new CSInterface();
-   // cs.evalScript("dodo(1122)");
+    // cs.evalScript("dodo(1122)");
 
 
     function loadJSX(fileName)
@@ -77,7 +71,7 @@ var pop = function ()
                     div.setAttribute("font_family", o.list[i].family);
                     div.setAttribute("font_postScriptName", o.list[i].postScriptName);
                     //div.setAttribute("style", "font-family:" + "'" + o.list[i][o.list[i].displayName] + "';");
-                    div.setAttribute("style", "font-family: " + "'" + o.list[i].name + "','" + o.list[i].postScriptName + "', '"+ o.list[i].family+"' ;");
+                    div.setAttribute("style", "font-family: " + "'" + o.list[i].name + "','" + o.list[i].postScriptName + "', '" + o.list[i].family + "' ;");
 
                     div.appendChild(document.createTextNode(o.list[i].family + " : " + o.list[i].style + " : " + o.list[i].name));
 
@@ -103,31 +97,62 @@ var pop2 = function ()
 
 // Create a new Event
     var event = new CSEvent("com.adobe.PhotoshopRegisterEvent", "APPLICATION");
-
 // Set Event properties: extension id
     event.extensionId = csInterface.getExtensionID();
-
-    event.data = "1885434740";
+    event.data = "1298866208";
 
 // Dispatch the Event
     csInterface.dispatchEvent(event);
 
 // Attach a callback
-    csInterface.addEventListener("com.adobe.PhotoshopJSONCallback" + csInterface.getExtensionID(), PSCallback);
+    csInterface.addEventListener("PhotoshopCallbackUnique", PSCallbackAll);
+    csInterface.addEventListener("com.adobe.PhotoshopJSONCallback" + csInterface.getExtensionID(), PSCallbackCS);
     csInterface.addEventListener("com.adobe.cep.test", PSCallback);
-    csInterface.addEventListener("PhotoshopCallback", PSCallbackAll);
+
+
+
+
+
+
+
+
+
+    var esEvent  = JSON.parse(result)
+
+    // Define the callback
+    function PSCallbackCS(event)
+    {
+        alert("event");
+        event.data=event.data.replace("ver1,{", "{");
+        var esEvent  = JSON.parse(event);
+
+        alert(esEvent.eventID+"\n\n"+esEvent.data);
+
+    }
+
+
+
+
 // Define the callback
     function PSCallback(csEvent)
     {
         console.log(csEvent.data);
-        alert("RRR" + csEvent.data)
+        alert("RRR: " + csEvent.data)
     }
+
+
+    csInterface.addEventListener("com.nullice.event.test2",
+        function (csEvent)
+        {
+            alert(csEvent.type + " : " + csEvent.data);
+        }
+    );
 
 
     function PSCallbackAll(csEvent)
     {
         console.log(csEvent.data);
-        alert(csEvent.type+" :" + csEvent.data);
+        alert("PhotoshopCallback \n" + csEvent.type + " :" + csEvent.data);
     }
 
 
@@ -145,15 +170,12 @@ var pop2 = function ()
 
     csInterface.addEventListener("My Custom Event", function (evt)
     {
-
         alert('Data from the JSX payload: ' + evt.data);
-
     });
 
 
     cs.evalScript("dodo('pop2')");
 }
-
 
 
 var pop3 = function ()
@@ -184,9 +206,4 @@ var pop3 = function ()
 //        '{ "firstName":"Thomas" , "lastName":"Carter" } ]}';
 //
 //console.log( eval ("(" + txt + ")"))
-
-
-
-
-
 
