@@ -110,27 +110,15 @@ var pop2 = function ()
     csInterface.addEventListener("com.adobe.cep.test", PSCallback);
 
 
-
-
-
-
-
-
-
-    var esEvent  = JSON.parse(result)
+    var esEvent = JSON.parse(result)
 
     // Define the callback
     function PSCallbackCS(event)
     {
-        alert("event");
-        event.data=event.data.replace("ver1,{", "{");
-        var esEvent  = JSON.parse(event);
-
-        alert(esEvent.eventID+"\n\n"+esEvent.data);
-
+        event.data = event.data.replace("ver1,{", "{");
+        var esEvent = JSON.parse(event.data);
+        alert(esEvent.eventID + "\n" + esEvent.eventData);
     }
-
-
 
 
 // Define the callback
@@ -180,14 +168,11 @@ var pop2 = function ()
 
 var pop3 = function ()
 {
-    var csInterface = new CSInterface();
-    var event = new CSEvent();
-    event.type = "com.adobe.cep.test";
-    event.scope = "APPLICATION";
-    event.data = "good bye @whitesincerely !";
-    csInterface.dispatchEvent(event);
-
+    var cs = new CSInterface();
+    var message= "来自 CEP 插件 ：" +cs.getExtensionID();
+    cs.evalScript("dodo('"+message +"');")
 }
+
 //
 //    cs.evalScript("app.fonts.length",function(res)
 //    {
