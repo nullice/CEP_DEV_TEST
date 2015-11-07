@@ -2,15 +2,29 @@
 .fa {
     display: block;
     background: #f036ff;
+    width:200px;
+    padding: 12px;
+    top: 130px;
+    left:50%;
+    bottom:0%;
+    position: absolute;
+
 }
+
+.fa3 {
+    display: block;
+    background: #f036ff;
+    width:200px;
+    padding: 40px;
+    box-sizing: border-box;
+    border: solid blue 10px;
+}
+
 
 .fa2 {
     background-color: #134f7f;
     color: #ff0;
     display: block;
-    max-width: 644px;
-    margin: 0 auto ;
-
 
 
 }
