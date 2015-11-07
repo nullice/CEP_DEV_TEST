@@ -108,6 +108,14 @@ var pop2 = function ()
     csInterface.addEventListener("PhotoshopCallbackUnique", PSCallbackAll);
     csInterface.addEventListener("com.adobe.PhotoshopJSONCallback" + csInterface.getExtensionID(), PSCallbackCS);
     csInterface.addEventListener("com.adobe.cep.test", PSCallback);
+    csInterface.addEventListener(CSInterface.THEME_COLOR_CHANGED_EVENT, sssss);
+
+    function sssss(event)
+    {
+        alert("1111");
+
+    }
+
 
 
     var esEvent = JSON.parse(result)
@@ -169,7 +177,7 @@ var pop2 = function ()
 var pop3 = function ()
 {
     var cs = new CSInterface();
-    var message= "来自 CEP 插件 ：" +cs.getExtensionID();
+    var message= "来自 CEP"
     cs.evalScript("dodo('"+message +"');")
 }
 
