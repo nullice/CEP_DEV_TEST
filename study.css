@@ -1,6 +1,25 @@
+.box
+{
+    width: 100px;
+    height: 100px;
+    background-color: #288edf;
+    margin: 10px;
+    display: inline-block;
+    vertical-align:;
 
 
 
+}
+
+.boxs{
+    }
 
 
+.jj{
+    clear: right;
+    width: 400px;
+    height:200px;
+    background-color: red;
 
+
+}
