@@ -33,50 +33,50 @@
                     <AutoVisible>true</AutoVisible>
                     <StartOn>
                         <!-- Photoshop dispatches this event on startup -->
-                        <Event>applicationActivate</Event>
-                    </StartOn>
-                </Lifecycle>
+                        <!--   <Event>applicationActivate</Event> -->
+                      </StartOn>
+                  </Lifecycle>
 
-                <UI>
-                    <Type>Panel</Type>
-                    <Menu>Exchange Extension 测试2
+                  <UI>
+                      <Type>Panel</Type>
+                      <Menu>Exchange Extension 测试2
 
-                        <MenuItem Id="menuItemId1" Label="TestExample1" Enabled="true" Checked="false"/>
-                        <MenuItem Label="TestExample2">
-                            <MenuItem Label="TestExample2-1" >
-                                <MenuItem Label="TestExample2-1-1" Enabled="false" Checked="true"/>
-                            </MenuItem>
-                            <MenuItem Label="TestExample2-2" Enabled="true" Checked="true"/>
-                        </MenuItem>
-                        <MenuItem Label="---" />
-                        <MenuItem Label="TestExample3" Enabled="false" Checked="false"/>
+                          <MenuItem Id="menuItemId1" Label="TestExample1" Enabled="true" Checked="false"/>
+                          <MenuItem Label="TestExample2">
+                              <MenuItem Label="TestExample2-1" >
+                                  <MenuItem Label="TestExample2-1-1" Enabled="false" Checked="true"/>
+                              </MenuItem>
+                              <MenuItem Label="TestExample2-2" Enabled="true" Checked="true"/>
+                          </MenuItem>
+                          <MenuItem Label="---" />
+                          <MenuItem Label="TestExample3" Enabled="false" Checked="false"/>
 
-                    </Menu>
+                      </Menu>
 
 
-                    <Geometry>
-                        <Size>
-                            <Height>300</Height>
-                            <Width>300</Width>
-                        </Size>
-                        <MaxSize>
-                            <Height>900</Height>
-                            <Width>900</Width>
-                        </MaxSize>
-                        <MinSize>
-                            <Height>300</Height>
-                            <Width>300</Width>
-                        </MinSize>
-                    </Geometry>
+                      <Geometry>
+                          <Size>
+                              <Height>300</Height>
+                              <Width>300</Width>
+                          </Size>
+                          <MaxSize>
+                              <Height>900</Height>
+                              <Width>900</Width>
+                          </MaxSize>
+                          <MinSize>
+                              <Height>300</Height>
+                              <Width>300</Width>
+                          </MinSize>
+                      </Geometry>
 
-                    <Icons>
-                        <Icon Type="Normal">./img/icon1.png</Icon>
-                        <Icon Type="DarkNormal">./img/icon1.png</Icon>
-                    </Icons>
+                      <Icons>
+                          <Icon Type="Normal">./img/icon1.png</Icon>
+                          <Icon Type="DarkNormal">./img/icon1.png</Icon>
+                      </Icons>
 
-                </UI>
+                  </UI>
 
-            </DispatchInfo>
-        </Extension>
-    </DispatchInfoList>
-</ExtensionManifest>
+              </DispatchInfo>
+          </Extension>
+      </DispatchInfoList>
+  </ExtensionManifest>
