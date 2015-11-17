@@ -117,7 +117,6 @@ var pop2 = function ()
     }
 
 
-
     var esEvent = JSON.parse(result)
 
     // Define the callback
@@ -177,8 +176,8 @@ var pop2 = function ()
 var pop3 = function ()
 {
     var cs = new CSInterface();
-    var message= "来自 CEP"
-    cs.evalScript("dodo('"+message +"');")
+    var message = "来自 CEP"
+    cs.evalScript("dodo('" + message + "');")
 }
 
 //
@@ -199,4 +198,37 @@ var pop3 = function ()
 //        '{ "firstName":"Thomas" , "lastName":"Carter" } ]}';
 //
 //console.log( eval ("(" + txt + ")"))
+
+var fileName = "D:/d.txt";
+inf = window.cep.fs.readFile(fileName);
+if (0 == inf.err)
+{
+    console.log(inf.data);
+}
+
+window.cep.fs.writeFile("D:/1.txt", inf.data);
+inf = window.cep.fs.readFile(fileName, cep.encoding.base64);
+
+
+//-----------------
+
+
+    result = window.cep.fs.readFile(fileName);
+    if (0 == result.err)
+    {
+        // err 不为 0 ，读取成功
+        console.log(result.data);
+    }
+    else
+    {
+      // 失败
+    }
+
+
+
+
+
+
+
+
 
