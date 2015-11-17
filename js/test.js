@@ -199,51 +199,64 @@ var pop3 = function ()
 //
 //console.log( eval ("(" + txt + ")"))
 
-var fileName = "/1.txt";
+var fileName = "D:/1.txt";
 inf = window.cep.fs.readFile(fileName);
-window.cep.fs.writeFile("/2.txt", inf.data);
+window.cep.fs.writeFile("D:/2.txt", inf.data);
 
-inf = window.cep.fs.readFile(fileName,"Base64");
-window.cep.fs.writeFile("/3.txt", inf.data,"Base64");
-
-
+inf = window.cep.fs.readFile(fileName, "Base64");
+window.cep.fs.writeFile("D:/3.txt", inf.data, "Base64");
 
 
 var fileName = "D:/autorun.ico";
 
-inf = window.cep.fs.readFile(fileName,"Base64");
-window.cep.fs.writeFile("D:/1.ico", inf.data,"Base64");
+inf = window.cep.fs.readFile(fileName, "Base64");
+window.cep.fs.writeFile("D:/1.ico", inf.data, "Base64");
+
+inf = window.cep.fs.readFile("D:/A.ico";
+,
+"Base64"
+)
+;
+window.cep.fs.writeFile("D:/B.ico", inf.data, "Base64");
 
 
-
-
+var result = window.cep.fs.readdir(__dirname );
+if (0 == result.err)
+{
+    console.log( result.data);
+    // [".idea", "css", "CSXS", "EEE", "font", "img", "js", "jsx", "tem", ".debug", "1.TXT", "index.html"]
+}
+else
+{
+    console.log("错误：" + result.err)
+}
 
 
 //-----------------
 
 
-    result = window.cep.fs.readFile(fileName);
-    if (0 == result.err)
-    {
-        // err 不为 0 ，读取成功
-        console.log(result.data);
-    }
-    else
-    {
-      // 失败
-    }
-
-
+result = window.cep.fs.readFile(fileName);
+if (0 == result.err)
+{
+    // err 不为 0 ，读取成功
+    console.log(result.data);
+}
+else
+{
+    // 失败
+}
 
 
 var path = "/tmp/test";
 result = window.cep.fs.readFile(path, cep.encoding.Base64);
-if (0 == result.err) {
+if (0 == result.err)
+{
     //success
     var base64Data = result.data;
     var data = cep.encoding.convertion.b64_to_utf8(base64Data);
 }
-else {
+else
+{
 ...// fail
 }
 
