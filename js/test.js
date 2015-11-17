@@ -220,11 +220,11 @@ inf = window.cep.fs.readFile("D:/A.ico";
 window.cep.fs.writeFile("D:/B.ico", inf.data, "Base64");
 
 
-var result = window.cep.fs.readdir(__dirname );
+var result = window.cep.fs.showOpenDialog (true, true, "标题", "D:/", "")
 if (0 == result.err)
 {
     console.log( result.data);
-    // [".idea", "css", "CSXS", "EEE", "font", "img", "js", "jsx", "tem", ".debug", "1.TXT", "index.html"]
+
 }
 else
 {
