@@ -199,15 +199,24 @@ var pop3 = function ()
 //
 //console.log( eval ("(" + txt + ")"))
 
-var fileName = "D:/d.txt";
+var fileName = "/1.txt";
 inf = window.cep.fs.readFile(fileName);
-if (0 == inf.err)
-{
-    console.log(inf.data);
-}
+window.cep.fs.writeFile("/2.txt", inf.data);
 
-window.cep.fs.writeFile("D:/1.txt", inf.data);
-inf = window.cep.fs.readFile(fileName, cep.encoding.base64);
+inf = window.cep.fs.readFile(fileName,"Base64");
+window.cep.fs.writeFile("/3.txt", inf.data,"Base64");
+
+
+
+
+var fileName = "D:/autorun.ico";
+
+inf = window.cep.fs.readFile(fileName,"Base64");
+window.cep.fs.writeFile("D:/1.ico", inf.data,"Base64");
+
+
+
+
 
 
 //-----------------
@@ -227,7 +236,16 @@ inf = window.cep.fs.readFile(fileName, cep.encoding.base64);
 
 
 
-
+var path = "/tmp/test";
+result = window.cep.fs.readFile(path, cep.encoding.Base64);
+if (0 == result.err) {
+    //success
+    var base64Data = result.data;
+    var data = cep.encoding.convertion.b64_to_utf8(base64Data);
+}
+else {
+...// fail
+}
 
 
 
