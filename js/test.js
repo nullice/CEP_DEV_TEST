@@ -220,12 +220,18 @@ inf = window.cep.fs.readFile("D:/A.ico";
 window.cep.fs.writeFile("D:/B.ico", inf.data, "Base64");
 
 
-var result = window.cep.fs.showOpenDialog (true, true, "标题", "D:/", "")
+result = window.cep.fs.showSaveDialogEx ("标题", "D:/", ["*.txt"], "默认名称.TXT", "文件类型说明");
 if (0 == result.err)
 {
-    console.log( result.data);
-
-}
+    if(result.data.length==0)
+    {
+        console.log("用户放弃了保存");
+    }
+    else
+    {
+        console.log(result.data);
+    }
+ }
 else
 {
     console.log("错误：" + result.err)
